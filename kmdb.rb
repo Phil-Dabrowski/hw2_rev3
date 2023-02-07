@@ -24,6 +24,235 @@
 # - Generate the models and migration files to match the domain model from hw1.
 #   Table and columns should match the domain model. Execute the migration
 #   files to create the tables in the database. (5 points)
+
+## Run commands in Terminal before running KMDB.rb
+#rails generate model Studio
+#rails generate model Movie
+#rails generate model Actor
+#rails generate model Role
+
+Studio.destroy_all
+Movie.destroy_all
+Actor.destroy_all
+Role.destroy_all
+
+# - Insert the "Batman" sample data using ruby code. Do not use hard-coded ids.
+#Studio
+puts "there are #{Studio.all.count} studios"
+studio = Studio.new
+
+studio["name"] = "Warner Bros."
+studio.save
+puts "there are #{Studio.all.count} studios"
+wb = Studio.find_by({"name" => "Warner Bros."})
+#Movie
+
+
+movie = Movie.new
+movie["title"] = "Batman Begins"
+movie["year_released"] = 2005
+movie["rated"] = "PG-13"
+movie["studio_id"] = wb["id"]
+movie.save
+bm1 = Movie.find_by({"title" => "Batman Begins"})
+
+
+
+
+##
+
+movie = Movie.new
+movie["title"] = "The Dark Knight"
+movie["year_released"] = 2008
+movie["rated"] = "PG-13"
+movie["studio_id"] = wb["id"]
+movie.save
+bm2 = Movie.find_by({"title" => "The Dark Knight"})
+
+##
+movie = Movie.new
+movie["title"] = "The Dark Knight Rises"
+movie["year_released"] = 2012
+movie["rated"] = "PG-13"
+movie["studio_id"] = wb["id"]
+movie.save
+bm3 = Movie.find_by({"title" => "The Dark Knight Rises"})
+
+###Actors
+actor = Actor.new
+actor["name"] = "Christian Bale"
+actor.save
+christian_bale = Actor.find_by({"name" => "Christian Bale"})
+##
+actor = Actor.new
+actor["name"] = "Michael Caine"
+actor.save
+michael_caine = Actor.find_by({"name" => "Michael Caine"})
+
+##
+actor = Actor.new
+actor["name"] = "Liam Neeson"
+actor.save
+liam_neeson = Actor.find_by({"name" => "Liam Neeson"})
+
+##
+actor = Actor.new
+actor["name"] = "Katie Holmes"
+actor.save
+katie_holmes = Actor.find_by({"name" => "Katie Holmes"})
+
+##
+actor = Actor.new
+actor["name"] = "Gary Oldman"
+actor.save
+gary_oldman = Actor.find_by({"name" => "Gary Oldman"})
+
+##
+actor = Actor.new
+actor["name"] = "Heath Ledger"
+actor.save
+heath_ledger = Actor.find_by({"name" => "Heath Ledger"})
+
+##
+actor = Actor.new
+actor["name"] = "Aaron Eckhart"
+actor.save
+aaron_eckhart = Actor.find_by({"name" => "Aaron Eckhart"})
+
+
+##
+actor = Actor.new
+actor["name"] = "Maggie Gyllenhaal"
+actor.save
+maggie_gyllenhaal = Actor.find_by({"name" => "Maggie Gyllenhaal"})
+
+##
+actor = Actor.new
+actor["name"] = "Tom Hardy"
+actor.save
+tom_hardy = Actor.find_by({"name" => "Tom Hardy"})
+
+##
+actor = Actor.new
+actor["name"] = "Joseph Gordon-Levitt"
+actor.save
+jgl = Actor.find_by({"name" => "Joseph Gordon-Levitt"})
+
+##
+actor = Actor.new
+actor["name"] = "Anne Hathaway"
+actor.save
+anne_hathaway = Actor.find_by({"name" => "Anne Hathaway"})
+puts "there are #{Actor.all.count} actors"
+
+#ROLES
+##
+role = Role.new
+role["movie_id"] = bm1["id"]
+role["actor_id"] = christian_bale["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm1["id"]
+role["actor_id"] = michael_caine["id"]
+role["character_name"] = "Alfred"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm1["id"]
+role["actor_id"] = liam_neeson["id"]
+role["character_name"] = "Ra's Al Ghul"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm1["id"]
+role["actor_id"] = katie_holmes["id"]
+role["character_name"] = "Rachel Dawes"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm1["id"]
+role["actor_id"] = gary_oldman["id"]
+role["character_name"] = "Commissioner Gordon"
+role.save
+
+##BAT MAN 2
+role = Role.new
+role["movie_id"] = bm2["id"]
+role["actor_id"] = christian_bale["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm2["id"]
+role["actor_id"] = heath_ledger["id"]
+role["character_name"] = "Joker"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm2["id"]
+role["actor_id"] = aaron_eckhart["id"]
+role["character_name"] = "Harvey Dent"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm2["id"]
+role["actor_id"] = michael_caine["id"]
+role["character_name"] = "Alfred"
+role.save
+
+
+##
+role = Role.new
+role["movie_id"] = bm2["id"]
+role["actor_id"] = maggie_gyllenhaal["id"]
+role["character_name"] = "Rachel Dawes"
+role.save
+
+##BAT MAN 3
+role = Role.new
+role["movie_id"] = bm3["id"]
+role["actor_id"] = christian_bale["id"]
+role["character_name"] = "Bruce Wayne"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm3["id"]
+role["actor_id"] = gary_oldman["id"]
+role["character_name"] = "Commissioner Gordon"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm3["id"]
+role["actor_id"] = tom_hardy["id"]
+role["character_name"] = "Bane"
+role.save
+
+##
+role = Role.new
+role["movie_id"] = bm3["id"]
+role["actor_id"] = jgl["id"]
+role["character_name"] = "John Blake"
+role.save
+
+##
+
+role = Role.new
+role["movie_id"] = bm3["id"]
+role["actor_id"] = anne_hathaway["id"]
+role["character_name"] = "Selina Kyle"
+role.save
+
 # - Insert the "Batman" sample data using ruby code. Do not use hard-coded ids.
 #   Delete any existing data beforehand so that each run of this script does not
 #   create duplicate data. (5 points)
@@ -79,8 +308,25 @@
 # TODO!
 
 # Prints a header for the movies output
+puts ""
+puts ""
+puts ""
+puts ""
+puts ""
 puts "Movies"
 puts "======"
+movies = Movie.all
+actors = Actor.all
+roles = Role.all
+array1 = []
+for movie in movies
+studio = Studio.find_by({"id"=> movie["studio_id"]})
+puts "#{movie["title"]}         #{movie["year_released"]}         #{studio["name"]}"# DIRTY OUTPUT CODE BEFORE FINDING CODE ON SOF
+array1.push([movie["title"], movie["year_released"], studio["name"]])
+#puts studio["name"]
+end 
+
+
 puts ""
 
 # Query the movies data and loop through the results to display the movies output.
@@ -90,7 +336,29 @@ puts ""
 puts ""
 puts "Top Cast"
 puts "========"
-puts ""
+array2 = []
+for role in roles
+movie = Movie.find_by({"id"=> role["movie_id"]}) 
+actor = Actor.find_by({"id"=> role["actor_id"]})
+array2.push ([movie["title"], actor["name"], role["character_name"]])
+puts "#{movie["title"]}         #{actor["name"]}         #{role["character_name"]}" #DIRTY OUTPUT BEFORE FINDING Format spacing code below
+end
+
+#Found this code on stack overflow to format spacing doesn't work for the first array
+=begin
+def print_table(array)
+    widths     = array.transpose.map { |x| x.map(&:length).max }
+    row_format = widths.map { |w| "%-#{w}s" }.join('   ')
+  
+    array.each do |row_values|
+      puts row_format % row_values
+    end
+  end
+  
+  print_table(array2)
+
+  
+=end
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
